@@ -17,26 +17,27 @@
 
     <script>
         let container = document.getElementById("notes-container");
-        let createButton = document.getElementById("createButton");
+        let button = document.getElementById("createButton");
+        let counter = 0;
 
-        createButton.addEventListener("click", userPrompt => {
-            let promptForm = document.createElement("input");
-            promptForm.value = "Enter your note here...";
-            promptForm.className = "prompt";
-            container.appendChild(promptForm);
+        button.addEventListener("click", openPrompt => {
+            //let counter = 0; --> not going to work in function scope since we will initialize it every time
+            if (counter == 0) {
+                counter ++;
+                let promptContainer = document.createElement("div"); //1
+                container.appendChild(promptContainer);
+                
+                let exitPrompt = document.createElement("button"); //2
+                exitPrompt.value = "Exit";
+                promptContainer.appendChild(exitPrompt);
 
-            promptForm.addEventListener("click", removeValue => {
-                promptForm.value = "";
-            })
-        });
-
-        /*
-        .addEventListener("click", createNote => {
-            newNote = document.createElement("div");
-            newNote.className = "note";
-            container.appendChild(newNote);
+                exitPrompt.addEventListener("click", exit => {
+                    exitPrompt.parentElement.remove();
+                    counter = 0;
+                })
+            }
         })
-        */
+
 
 
     </script>
