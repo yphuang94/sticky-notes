@@ -20,10 +20,14 @@
         let createButton = document.getElementById("createButton");
 
         createButton.addEventListener("click", userPrompt => {
-            let userPrompt = document.createElement("div");
-            userPrompt.innerHTML = "text";
-            userPrompt.className = "prompt";
-            container.appendChild(userPrompt);
+            let promptForm = document.createElement("input");
+            promptForm.value = "Enter your note here...";
+            promptForm.className = "prompt";
+            container.appendChild(promptForm);
+
+            promptForm.addEventListener("click", removeValue => {
+                promptForm.value = "";
+            })
         });
 
         /*
