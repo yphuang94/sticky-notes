@@ -30,24 +30,24 @@
                 container.appendChild(promptContainer);
                 promptContainer.className = "promptContainer";
 
-                let promptText = document.createElement("textarea"); //sticky note value
+                let promptText = document.createElement("textarea"); //note text area
                 promptText.innerHTML = "Enter note...";
-                promptContainer.appendChild(promptText);
                 promptText.className = "promptText";
+                promptContainer.appendChild(promptText);
                 
-                let savePrompt = document.createElement("i"); //icon 1
+                let savePrompt = document.createElement("i"); //save icon
                 savePrompt.className = "fa-solid fa-check";
                 promptContainer.appendChild(savePrompt);
 
-                let exitPrompt = document.createElement("i"); //icon 2
+                let exitPrompt = document.createElement("i"); //exit icon
                 exitPrompt.className = "fa-solid fa-xmark";
                 promptContainer.appendChild(exitPrompt);
 
-                promptText.addEventListener("click", removeText => {
+                promptText.addEventListener("click", removeText => { //removes text from prompt
                     promptText.innerHTML = "";
                 })
 
-                savePrompt.addEventListener("click", save => {
+                savePrompt.addEventListener("click", save => { //creates sticky note
                     let stickyNote = document.createElement("div");
                     stickyNote.innerHTML = promptText.value;
                     container.appendChild(stickyNote);
@@ -56,7 +56,7 @@
                     counter --;
                 })
 
-                exitPrompt.addEventListener("click", exit => {
+                exitPrompt.addEventListener("click", exit => { //exits note prompt
                     exitPrompt.parentElement.remove();
                     counter --;
                 })
