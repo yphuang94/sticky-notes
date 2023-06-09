@@ -21,6 +21,7 @@
         let button = document.getElementById("createButton");
         let counter = 0;
         let rotateAngle = 0;
+        let color = [];
 
         button.addEventListener("click", openPrompt => {
             //let counter = 0; --> not going to work in function scope since we will initialize it every time
@@ -54,6 +55,7 @@
                     container.appendChild(stickyNote);
                     stickyNote.className = "stickyNote";
                     stickyNote.style.transform = `rotate(${rotateAngle}deg)`;
+                    stickyNote.style.background = `#${color}`;
                     savePrompt.parentElement.remove();
                     counter --;
                 })
@@ -66,7 +68,17 @@
         });
 
         button.addEventListener("click", rndNum => {
-            rotateAngle = Math.floor((Math.random() * 45) - 45);
+            rotateAngle = Math.floor((Math.random() * 10) - 10);
+        })
+
+        button.addEventListener("click", rndColor => {
+            color = [];
+            let colorArr = ["A", "B", "C", "D", "E", "F", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            for (i = 1; i <= 6; i++) {
+                color.push(colorArr[Math.floor(Math.random() * colorArr.length) + 0]);
+            }
+            color = color.join(""); //otherwise would return new string
+            console.log(color);
         })
 
 
