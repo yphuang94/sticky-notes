@@ -1,0 +1,15 @@
+.promptContainer {
+    display: text;
+    border: 1px solid gray;
+    padding: 10px;
+    width: 260px;
+}
+
+.promptText {
+    height: 200px;
+    width: 200px;
+}
+
+.fa-check {
+    margin: 0px 10px;
+}

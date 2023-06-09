@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Notes</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div id="main-container">
@@ -24,19 +25,36 @@
             //let counter = 0; --> not going to work in function scope since we will initialize it every time
             if (counter == 0) {
                 counter ++;
+                
                 let promptContainer = document.createElement("div"); //1
                 container.appendChild(promptContainer);
+                promptContainer.className = "promptContainer";
+
+                let promptText = document.createElement("textarea");
+                promptContainer.appendChild(promptText);
+                promptText.className = "promptText";
                 
-                let exitPrompt = document.createElement("button"); //2
-                exitPrompt.value = "Exit";
+                let savePrompt = document.createElement("i");
+                savePrompt.className = "fa-solid fa-check";
+                promptContainer.appendChild(savePrompt);
+
+                let exitPrompt = document.createElement("i"); //2
+                exitPrompt.className = "fa-solid fa-xmark";
                 promptContainer.appendChild(exitPrompt);
+
+                savePrompt.addEventListener("click", save => {
+                    let newSticky = document.createElement("div");
+
+                    savePrompt.parentElement.remove();
+                    counter --;
+                })
 
                 exitPrompt.addEventListener("click", exit => {
                     exitPrompt.parentElement.remove();
-                    counter = 0;
+                    counter --;
                 })
             }
-        })
+        });
 
 
 
