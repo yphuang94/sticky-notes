@@ -20,6 +20,7 @@
         let container = document.getElementById("notes-container");
         let button = document.getElementById("createButton");
         let counter = 0;
+        let rotateAngle = 0;
 
         button.addEventListener("click", openPrompt => {
             //let counter = 0; --> not going to work in function scope since we will initialize it every time
@@ -32,7 +33,7 @@
 
                 let promptText = document.createElement("textarea"); //note text area
                 promptText.innerHTML = "Enter note...";
-                promptText.className = "promptText";
+                promptText.className = "prompt-text";
                 promptContainer.appendChild(promptText);
                 
                 let savePrompt = document.createElement("i"); //save icon
@@ -52,6 +53,7 @@
                     stickyNote.innerHTML = promptText.value;
                     container.appendChild(stickyNote);
                     stickyNote.className = "stickyNote";
+                    stickyNote.style.transform = `rotate(${rotateAngle}deg)`;
                     savePrompt.parentElement.remove();
                     counter --;
                 })
@@ -62,6 +64,10 @@
                 })
             }
         });
+
+        button.addEventListener("click", rndNum => {
+            rotateAngle = Math.floor((Math.random() * 45) - 45);
+        })
 
 
 
