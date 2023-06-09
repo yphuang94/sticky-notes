@@ -31,6 +31,7 @@
                 promptContainer.className = "promptContainer";
 
                 let promptText = document.createElement("textarea"); //sticky note value
+                promptText.innerHTML = "Enter note...";
                 promptContainer.appendChild(promptText);
                 promptText.className = "promptText";
                 
@@ -41,6 +42,10 @@
                 let exitPrompt = document.createElement("i"); //icon 2
                 exitPrompt.className = "fa-solid fa-xmark";
                 promptContainer.appendChild(exitPrompt);
+
+                promptText.addEventListener("click", removeText => {
+                    promptText.innerHTML = "";
+                })
 
                 savePrompt.addEventListener("click", save => {
                     let stickyNote = document.createElement("div");
