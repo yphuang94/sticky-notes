@@ -13,3 +13,9 @@
 .fa-check {
     margin: 0px 10px;
 }
+
+textarea {
+    border: none;  
+    outline: none;
+    resize: none;  
+}

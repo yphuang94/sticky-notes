@@ -26,25 +26,27 @@
             if (counter == 0) {
                 counter ++;
                 
-                let promptContainer = document.createElement("div"); //1
+                let promptContainer = document.createElement("div");
                 container.appendChild(promptContainer);
                 promptContainer.className = "promptContainer";
 
-                let promptText = document.createElement("textarea");
+                let promptText = document.createElement("textarea"); //sticky note value
                 promptContainer.appendChild(promptText);
                 promptText.className = "promptText";
                 
-                let savePrompt = document.createElement("i");
+                let savePrompt = document.createElement("i"); //icon 1
                 savePrompt.className = "fa-solid fa-check";
                 promptContainer.appendChild(savePrompt);
 
-                let exitPrompt = document.createElement("i"); //2
+                let exitPrompt = document.createElement("i"); //icon 2
                 exitPrompt.className = "fa-solid fa-xmark";
                 promptContainer.appendChild(exitPrompt);
 
                 savePrompt.addEventListener("click", save => {
-                    let newSticky = document.createElement("div");
-
+                    let stickyNote = document.createElement("div");
+                    stickyNote.innerHTML = promptText.value;
+                    container.appendChild(stickyNote);
+                    stickyNote.className = "stickyNote";
                     savePrompt.parentElement.remove();
                     counter --;
                 })
