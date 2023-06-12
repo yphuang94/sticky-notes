@@ -28,7 +28,7 @@
             if (counter == 0) {
                 counter ++;
                 
-                let promptContainer = document.createElement("div");
+                let promptContainer = document.createElement("div"); //note prompt container
                 container.appendChild(promptContainer);
                 promptContainer.className = "promptContainer";
 
@@ -57,21 +57,21 @@
                     stickyNote.style.transform = `rotate(${rotateAngle}deg)`;
                     stickyNote.style.background = `#${color}`;
                     savePrompt.parentElement.remove();
-                    counter --;
+                    counter --; //reset counter
                 })
 
                 exitPrompt.addEventListener("click", exit => { //exits note prompt
                     exitPrompt.parentElement.remove();
-                    counter --;
+                    counter --; //reset counter
                 })
             }
         });
 
-        button.addEventListener("click", rndNum => {
+        button.addEventListener("click", rndNum => { //rotate angle
             rotateAngle = Math.floor((Math.random() * 10) - 10);
         })
 
-        button.addEventListener("click", rndColor => {
+        button.addEventListener("click", rndColor => { //color randomizer
             color = [];
             let colorArr = ["A", "B", "C", "D", "E", "F", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
             for (i = 1; i <= 6; i++) {

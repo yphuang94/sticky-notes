@@ -1,8 +1,17 @@
+body {
+    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+}
+
 .promptContainer {
     display: text;
     border: 1px solid gray;
+    background: white;
+    opacity: .7;
     padding: 10px;
     width: 260px;
+    position: fixed;
+    top: 40%;
+    left: 40%;
 }
 
 .prompt-text {
@@ -15,7 +24,7 @@
 }
 
 textarea {
-    border: none;  
+    border: none; 
     outline: none;
     resize: none;  
 }
@@ -25,9 +34,16 @@ textarea {
     width: 300px;
     border: 1px solid black;
     margin: 20px;
+    opacity: .8;
 }
 
 #notes-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+button {
+    background: white;
+    height: 40px;
+    border-radius: 5px;
 }
